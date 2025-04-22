@@ -17,13 +17,13 @@
             </div>
             <form class="logbox">
                 <div class="box2">student code</div>
-                <input class="stag" type="text" placeholder="" required>
+                <input class="stag" id="stid" type="text" placeholder="" required>
                 <div class="box2">password</div>
-                <input class="stag" type="password" placeholder=" " required>
+                <input class="stag" id="stpass" type="password" placeholder=" " required>
                 <div class="box2">Enter security code</div>
                 <div class="box3">QeMLT67Ed</div>
                 <div class="box2">
-                    <input class="stag1" type="password" placeholder="" required>
+                    <input class="stag1" id="seccode" type="password" placeholder="" required>
                     [change Image]
                 </div>
 
@@ -41,13 +41,31 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     const loginbtn = document.getElementById('login-btn')
+    const stid = document.getElementById('stid')
+    const stpass = document.getElementById('stpass')
+    const seccode = document.getElementById('seccode')
     loginbtn.addEventListener('click', (e) => {
         e.preventDefault()
-        Swal.fire({
-            title: "Good job!",
-            text: "You clicked the button!",
-            icon: "success"
-        })
+        if (stid.value == "BWU/BCA/24/424" && stpass.value == "Ankita@424" && seccode.value == "abcdef") {
+
+            Swal.fire({
+                title: "login Successful",
+                text: "WELCOME",
+                icon: "success"
+            })
+            setTimeout(() => {
+                location.href = "hello.html"
+            }, 1000);
+        }
+        else {
+            Swal.fire({
+                title: "Invalid login Credential",
+                text: "Try again!",
+                icon: "error"
+            })
+        }
+
+
 
     });
 </script>
